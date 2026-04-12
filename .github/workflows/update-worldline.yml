@@ -1,0 +1,61 @@
+name: update-worldline-panel
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate worldline panel data
+        run: |
+          python - <<'PY'
+          import json
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+
+          now = datetime.now(ZoneInfo("Asia/Shanghai"))
+          clock = {
+              "schemaVersion": 1,
+              "label": "WORLDLINE CLOCK",
+              "message": now.strftime("Asia/Shanghai %H:%M"),
+              "color": "0ea5e9"
+          }
+
+          # Keep the meter near 1.048*** and make it subtly change over time.
+          drift_tail = (now.hour * 3600 + now.minute * 60 + now.second) % 1000
+          meter = {
+              "schemaVersion": 1,
+              "label": "WORLDLINE DRIFT",
+              "message": f"1.048{drift_tail:03d}",
+              "color": "10b981"
+          }
+
+          with open("assets/worldline-clock.json", "w", encoding="utf-8") as f:
+              json.dump(clock, f, ensure_ascii=False, indent=2)
+              f.write("\n")
+
+          with open("assets/worldline-meter.json", "w", encoding="utf-8") as f:
+              json.dump(meter, f, ensure_ascii=False, indent=2)
+              f.write("\n")
+          PY
+
+      - name: Commit and push
+        run: |
+          if git diff --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/worldline-clock.json assets/worldline-meter.json
+          git commit -m "chore: refresh worldline panel"
+          git push
