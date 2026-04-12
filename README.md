@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/interstellar-worldline.svg" alt="Interstellar x Steins;Gate Banner" width="100%" />
+  <img src="https://raw.githubusercontent.com/bloodycoder/bloodycoder/main/assets/worldline-banner.svg" alt="Mission Banner" width="100%" />
 </p>
 
 <p align="center">
@@ -18,7 +18,7 @@
 Build practical AI systems with long-term compounding value.
 
 - Focus: automation, CLI tooling, delivery pipelines, reproducible engineering.
-- Style: interstellar vision + worldline discipline.
+- Rhythm: long-horizon thinking, disciplined execution.
 - Rule: outcomes over noise.
 
 ```text
@@ -32,23 +32,6 @@ jump_window: next 7 days
 ## Engineering Arsenal
 
 `Harness` `Python` `Go` `Shell` `GitHub Actions` `Automation` `CLI Tooling`
-
-## Temporal Log (Recent OSS PRs)
-
-<!-- recent_prs starts -->
-- [openclaw/openclaw#65262](https://github.com/openclaw/openclaw/pull/65262): clarify runtime slash-command UX
-- [MoonshotAI/kimi-cli#1845](https://github.com/MoonshotAI/kimi-cli/pull/1845): default web session `work_dir` behavior fix
-- [MoonshotAI/kimi-cli#1841](https://github.com/MoonshotAI/kimi-cli/pull/1841): slash command completion for exact matches
-- [MoonshotAI/kimi-cli#1840](https://github.com/MoonshotAI/kimi-cli/pull/1840): timeout alias normalization
-- [MoonshotAI/kimi-cli#1839](https://github.com/MoonshotAI/kimi-cli/pull/1839): add `/delete` command for session removal
-<!-- recent_prs ends -->
-
-## Signature Repositories
-
-- [codex-cc-web-terminal](https://github.com/bloodycoder/codex-cc-web-terminal): agent-first terminal workflow experiments.
-- [craw_books](https://github.com/bloodycoder/craw_books): large-scale crawler tooling practice.
-- [CNrhythm](https://github.com/bloodycoder/CNrhythm): Chinese rhyme utility for text processing.
-- [jsontopb](https://github.com/bloodycoder/jsontopb): JSON-to-Protobuf conversion utility.
 
 ## Channels
 
